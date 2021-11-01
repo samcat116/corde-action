@@ -1,0 +1,34 @@
+name: corde-action
+description: Run Corde Bot Tests via Github Actions
+inputs:
+	cordeBotToken:
+		description: The Discord bot token that Corde will use to simulate a user
+		required: true
+	botTestID:
+		description: Your bot's ID
+		required: true
+	botToken:
+		description: Your bot's token
+		required: true
+	guildID:
+		description: The ID of the guild where the testing will occur. Both Bots must already be in this guild.
+		required: true
+	channelID:
+		description: The ID of the channel where the bots will perform the testing.
+		required: true
+	botPrefix:
+		description: The prefix used to call your bot. This will be attached to each command
+		required: true
+	testMatches:
+		description: The path to where the tests are located. Defaults to a directory called tests in the current working directory.
+		required: false
+		default: tests/
+	timeout:
+		descripton: The timeout in milliseconds for the tests
+		required: false
+outputs:
+	passed:
+		description: Whether or not the tests passed. Returns true or false
+runs: 
+	using: 'node12'
+	main: 'index.js'	
