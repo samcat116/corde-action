@@ -45,7 +45,7 @@ func generateConfig() -> String {
 try {
 	const config = generateConfig();
 	fs.writeFile('config.json', config)
-	exec('npm run test --config config.json')
+	exec('npx run test --config config.json')
 	core.setOutput("passed", true)
 } catch (error) {
 	core.setFailed(error);
